@@ -1,8 +1,11 @@
 import random #imports the random archive to randomize the computers choice
 
 def get_choices(): #function to get both players choices
-    player_choice = input("Enter a choice (rock, paper, scissors):")
     options = ["rock", "paper", "scissors"]
+    player_choice = input("Enter a choice (rock, paper, scissors):")
+    while player_choice not in options: #checks if players input is within choices
+        print("Invalid answer, please try again!")
+        player_choice = input("Enter a choice (rock, paper, scissors):")
     computer_choice = random.choice(options)
     choices = {"player" : player_choice, "computer": computer_choice}
     return choices
