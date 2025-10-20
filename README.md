@@ -1,6 +1,8 @@
 # Rock-paper-scissors
 Learning Python fundamentals through a terminal-based Rock Paper Scissors game.
 
+Update v2.1 - 
+  Added ability to view rules and to reset the score.
 Update v2.0 -
   Added new game mode (remix). Player can choose between classic or remix.
   
