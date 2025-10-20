@@ -9,31 +9,41 @@ def get_choices(): #function to get both players choices
     computer_choice = random.choice(options)
     choices = {"player" : player_choice, "computer": computer_choice}
     return choices
+    
+player_win = 0 #starting scores for the game
+computer_win = 0
 
-def check_win(player, computer): #function to check who won the match
+def check_win(player, computer, player_win, computer_win): #function to check who won the match
     print(f"You chose {player}, computer chose {computer}.")
     if player == computer:
-        return "It's a tie!"
+        return "It's a tie!", player_win, computer_win
     elif player == "rock": 
         if computer == "scissors":
-            return "You win!"
+            player_win += 1
+            return "You win!", player_win, computer_win
         else: 
-            return "You lose!"
+            computer_win += 1
+            return "You lose!", player_win, computer_win
     elif player == "paper":
         if computer == "rock":
-            return "You win!"
+            player_win += 1
+            return "You win!", player_win, computer_win
         else: 
-            return "You lose!"
+            computer_win += 1
+            return "You lose!", player_win, computer_win
     elif player == "scissors":
         if computer == "paper":
-            return "You win!"
+            player_win += 1
+            return "You win!", player_win, computer_win
         else: 
-            return "You lose!"
+            computer_win += 1
+            return "You lose!", player_win, computer_win
     
 play_again = "y"   
 
 while play_again == "y": #Loops game till player choses "n"
     choices = get_choices()
-    result = check_win(choices["player"], choices["computer"])
+    result, player_win, computer_win = check_win(choices["player"], choices["computer"], player_win, computer_win)
     print(result)
+    print(f"Score: You: {player_win} Computer: {computer_win}")
     play_again = input("Play again? (y/n)")
