@@ -30,6 +30,10 @@ def check_win(player, computer): #function to check who won the match
         else: 
             return "You lose!"
     
-choices = get_choices() #runs the get_choices() function
-result = check_win(choices["player"], choices["computer"]) #runs the check_win() function to see who won
-print(result)
+play_again = "y"   
+
+while play_again == "y": #Loops game till player choses "n"
+    choices = get_choices()
+    result = check_win(choices["player"], choices["computer"])
+    print(result)
+    play_again = input("Play again? (y/n)")
