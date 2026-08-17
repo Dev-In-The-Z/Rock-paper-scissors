@@ -40,6 +40,8 @@ player_win = 0 #starting scores for the game
 computer_win = 0
 
 def check_win_classic(player, computer, player_win, computer_win): #function to check who won the match for classic
+    player_win = 0 #starting scores for the game
+    computer_win = 0
     print(f"You chose {player}, computer chose {computer}.")
     if player == computer:
         return "It's a tie!", player_win, computer_win
@@ -154,7 +156,7 @@ if version == "classic": #plays classic mode
     
         if player_win > 0 or computer_win > 0: #asks if score wants to be reset
 	        reset = input("Would you like to reset the score? (y/n) ").strip().lower()
-	        while reset != "y" and reset != "n":
+            while reset != "y" and reset != "n":
 		        print("Invalid response. Please try again.")
 		        reset = input("Would you like to reset the score? (y/n) ").strip().lower()
 	        if reset == "y":
